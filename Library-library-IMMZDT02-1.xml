@@ -1,0 +1,554 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<library xmlns="urn:hl7-org:elm:r1" xmlns:t="urn:hl7-org:elm-types:r1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:fhir="http://hl7.org/fhir" xmlns:qdm43="urn:healthit-gov:qdm:v4_3" xmlns:qdm53="urn:healthit-gov:qdm:v5_3" xmlns:a="urn:hl7-org:cql-annotations:r1">
+   <annotation translatorVersion="1.4" translatorOptions="EnableAnnotations,EnableLocators,DisableListDemotion,DisableListPromotion" xsi:type="a:CqlToElmInfo"/>
+   <annotation xsi:type="a:Annotation">
+      <a:s r="20">
+         <a:s>/*
+ * Library: IMMZDT02 (IMMZ.DT.02.HepatitisB)
+ * Rule: If child or person has not been vaccinated, give Hepatitis B vaccine as soon as possible after birth 
+ * Trigger: Patient has never had Hepatitis B vaccination, or missing doses in the vaccination schedule
+ */
+library IMMZDT02</a:s>
+      </a:s>
+   </annotation>
+   <identifier id="IMMZDT02" system="http://fhir.org/guides/who/smart-immunization"/>
+   <schemaIdentifier id="urn:hl7-org:elm" version="r1"/>
+   <usings>
+      <def localIdentifier="System" uri="urn:hl7-org:elm-types:r1"/>
+      <def localId="1" locator="8:1-8:26" localIdentifier="FHIR" uri="http://hl7.org/fhir" version="4.0.1">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="1">
+               <a:s>// Start Skeleton CQL
+using </a:s>
+               <a:s>
+                  <a:s>FHIR</a:s>
+               </a:s>
+               <a:s> version '4.0.1'</a:s>
+            </a:s>
+         </annotation>
+      </def>
+   </usings>
+   <includes>
+      <def localId="2" locator="9:1-9:35" localIdentifier="FHIRHelpers" path="http://fhir.org/guides/who/smart-immunization/FHIRHelpers" version="4.0.1">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="2">
+               <a:s>include </a:s>
+               <a:s>
+                  <a:s>FHIRHelpers</a:s>
+               </a:s>
+               <a:s> version '4.0.1'</a:s>
+            </a:s>
+         </annotation>
+      </def>
+      <def localId="3" locator="10:1-10:33" localIdentifier="IMMZCom" path="http://fhir.org/guides/who/smart-immunization/IMMZCommon">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="3">
+               <a:s>include </a:s>
+               <a:s>
+                  <a:s>IMMZCommon</a:s>
+               </a:s>
+               <a:s> called IMMZCom</a:s>
+            </a:s>
+         </annotation>
+      </def>
+      <def localId="4" locator="11:1-11:33" localIdentifier="IMMZc" path="http://fhir.org/guides/who/smart-immunization/IMMZConcepts">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="4">
+               <a:s>include </a:s>
+               <a:s>
+                  <a:s>IMMZConcepts</a:s>
+               </a:s>
+               <a:s> called IMMZc</a:s>
+            </a:s>
+         </annotation>
+      </def>
+      <def localId="5" locator="12:1-12:33" localIdentifier="IMMZCon" path="http://fhir.org/guides/who/smart-immunization/IMMZConfig">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="5">
+               <a:s>include </a:s>
+               <a:s>
+                  <a:s>IMMZConfig</a:s>
+               </a:s>
+               <a:s> called IMMZCon</a:s>
+            </a:s>
+         </annotation>
+      </def>
+      <def localId="6" locator="13:1-13:40" localIdentifier="IMMZvl" path="http://fhir.org/guides/who/smart-immunization/IMMZVaccineLibrary">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="6">
+               <a:s>include </a:s>
+               <a:s>
+                  <a:s>IMMZVaccineLibrary</a:s>
+               </a:s>
+               <a:s> called IMMZvl</a:s>
+            </a:s>
+         </annotation>
+      </def>
+   </includes>
+   <statements>
+      <def locator="16:1-16:15" name="Patient" context="Patient">
+         <expression xsi:type="SingletonFrom">
+            <operand locator="16:1-16:15" dataType="fhir:Patient" templateId="http://hl7.org/fhir/StructureDefinition/Patient" xsi:type="Retrieve"/>
+         </expression>
+      </def>
+      <def localId="17" locator="109:1-110:56" name="Patient birth weight observation value" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="17">
+               <a:s>/* 
+ * @dataElement Patient birth weight observation value
+ */
+define &quot;Patient birth weight observation value&quot;:
+	</a:s>
+               <a:s r="16">
+                  <a:s>First(</a:s>
+                  <a:s r="15">
+                     <a:s r="14">
+                        <a:s>IMMZCom</a:s>
+                     </a:s>
+                     <a:s>.</a:s>
+                     <a:s r="15">
+                        <a:s>&quot;Patient birth weight observation value&quot;</a:s>
+                     </a:s>
+                  </a:s>
+                  <a:s>)</a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="16" locator="110:2-110:56" xsi:type="First">
+            <source localId="15" locator="110:8-110:55" name="Patient birth weight observation value" libraryName="IMMZCom" xsi:type="ExpressionRef"/>
+         </expression>
+      </def>
+      <def localId="20" locator="125:1-126:9" name="2000g" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="20">
+               <a:s>define &quot;2000g&quot;:
+	</a:s>
+               <a:s r="19">
+                  <a:s>2000 'g'</a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="19" locator="126:2-126:9" value="2000" unit="g" xsi:type="Quantity"/>
+      </def>
+      <def localId="28" locator="32:1-38:2" name="Should vaccinate patient for Hepatitis B because no doses and (low birth weight or premature infant)" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="28">
+               <a:s>/*
+ * Rule: Should vaccinate patient for Hepatitis B because no doses and (low birth weight or premature infant)
+ * Annotations:
+ * 	 - Provide Hepatitis B immunizations – using the &quot;Hepatitis B vaccine immunization – Birth dose&quot; schedule (Birth dose)
+ * 	 - 
+ * Outputs:
+ * 	 - Immunize Patient for Hepatitis B - No Doses and Premature birth or low birth weight
+ * 	 - 
+ * References:
+ * 	- WHO recommendations for routine immunization - summary tables: https://www.who.int/teams/immunization-vaccines-and-biologicals/policies/who-recommendations-for-routine-immunization---summary-tables
+ * 	- 
+ * Logic:
+ *	 ((&quot;Hepatitis B vaccine immunization history&quot; = &quot;No-doses&quot;) and ((&quot;Patient birth weight observation value&quot; &lt; 2000g) or (&quot;Patient mother's prenancy outcome observation&quot; = &quot;preterm&quot;)) and (&quot;Current Patient Age in Weeks&quot; &lt; 2))
+ */
+define &quot;Should vaccinate patient for Hepatitis B because no doses and (low birth weight or premature infant)&quot;:
+	</a:s>
+               <a:s r="27">
+                  <a:s r="13">
+                     <a:s r="8">
+                        <a:s r="7">
+                           <a:s>IMMZCom</a:s>
+                        </a:s>
+                        <a:s>.</a:s>
+                        <a:s r="8">
+                           <a:s>&quot;No HepB Birth Dose Administered to Patient&quot;</a:s>
+                        </a:s>
+                     </a:s>
+                     <a:s> and
+	</a:s>
+                     <a:s r="12">
+                        <a:s r="10">
+                           <a:s r="9">
+                              <a:s>IMMZCom</a:s>
+                           </a:s>
+                           <a:s>.</a:s>
+                           <a:s r="10">
+                              <a:s>&quot;Current Patient Age In Weeks&quot;</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s r="11"> &lt; 2</a:s>
+                     </a:s>
+                  </a:s>
+                  <a:s> and
+	</a:s>
+                  <a:s r="26">
+                     <a:s>(
+		</a:s>
+                     <a:s r="26">
+                        <a:s r="22">
+                           <a:s r="18">
+                              <a:s>&quot;Patient birth weight observation value&quot;</a:s>
+                           </a:s>
+                           <a:s> &lt; </a:s>
+                           <a:s r="21">
+                              <a:s>&quot;2000g&quot;</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s> or
+		</a:s>
+                        <a:s r="25">
+                           <a:s>exists</a:s>
+                           <a:s r="24">
+                              <a:s>(</a:s>
+                              <a:s r="24">
+                                 <a:s r="23">
+                                    <a:s>IMMZCom</a:s>
+                                 </a:s>
+                                 <a:s>.</a:s>
+                                 <a:s r="24">
+                                    <a:s>&quot;Preterm Birth&quot;</a:s>
+                                 </a:s>
+                              </a:s>
+                              <a:s>)</a:s>
+                           </a:s>
+                        </a:s>
+                     </a:s>
+                     <a:s>
+	)</a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="27" locator="33:2-38:2" xsi:type="And">
+            <operand localId="13" locator="33:2-34:43" xsi:type="And">
+               <operand localId="8" locator="33:2-33:53" name="No HepB Birth Dose Administered to Patient" libraryName="IMMZCom" xsi:type="ExpressionRef"/>
+               <operand localId="12" locator="34:2-34:43" xsi:type="Less">
+                  <operand localId="10" locator="34:2-34:39" name="Current Patient Age In Weeks" libraryName="IMMZCom" xsi:type="ExpressionRef"/>
+                  <operand localId="11" locator="34:43" valueType="t:Integer" value="2" xsi:type="Literal"/>
+               </operand>
+            </operand>
+            <operand localId="26" locator="35:2-38:2" xsi:type="Or">
+               <operand localId="22" locator="36:3-36:52" xsi:type="Less">
+                  <operand name="ToQuantity" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                     <operand localId="18" locator="36:3-36:42" name="Patient birth weight observation value" xsi:type="ExpressionRef"/>
+                  </operand>
+                  <operand localId="21" locator="36:46-36:52" name="2000g" xsi:type="ExpressionRef"/>
+               </operand>
+               <operand localId="25" locator="37:3-37:33" xsi:type="Exists">
+                  <operand localId="24" locator="37:9-37:33" name="Preterm Birth" libraryName="IMMZCom" xsi:type="ExpressionRef"/>
+               </operand>
+            </operand>
+         </expression>
+      </def>
+      <def localId="31" locator="43:1-44:45" name="Hepatitis B vaccine immunization history" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="31">
+               <a:s>/* 
+ * @dataElement Hepatitis B vaccine immunization history
+ */
+define &quot;Hepatitis B vaccine immunization history&quot;:
+	</a:s>
+               <a:s r="30">
+                  <a:s r="29">
+                     <a:s>IMMZCom</a:s>
+                  </a:s>
+                  <a:s>.</a:s>
+                  <a:s r="30">
+                     <a:s>&quot;HepB Doses Administered to Patient&quot;</a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="30" locator="44:2-44:45" name="HepB Doses Administered to Patient" libraryName="IMMZCom" xsi:type="ExpressionRef"/>
+      </def>
+      <def localId="35" locator="49:1-50:55" name="No-doses of HepB vaccine administered to patient" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="35">
+               <a:s>/* 
+ * @dataElement No-doses
+ */
+define &quot;No-doses of HepB vaccine administered to patient&quot;:
+	</a:s>
+               <a:s r="34">
+                  <a:s>not </a:s>
+                  <a:s r="33">
+                     <a:s>exists</a:s>
+                     <a:s r="32">
+                        <a:s>(</a:s>
+                        <a:s r="32">
+                           <a:s>&quot;Hepatitis B vaccine immunization history&quot;</a:s>
+                        </a:s>
+                        <a:s>)</a:s>
+                     </a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="34" locator="50:2-50:55" xsi:type="Not">
+            <operand localId="33" locator="50:6-50:55" xsi:type="Exists">
+               <operand localId="32" locator="50:12-50:55" name="Hepatitis B vaccine immunization history" xsi:type="ExpressionRef"/>
+            </operand>
+         </expression>
+      </def>
+      <def localId="37" locator="63:1-64:53" name="Should vaccinate patient for Hepatitis B because no doses" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="37">
+               <a:s>/*
+ * Rule: Should vaccinate patient for Hepatitis B because no doses
+ * Annotations:
+ * 	 - Provide Hepatitis B immunizations – using the &quot;Hepatitis B vaccine immunization – NO PREVIOUS&quot; schedule (3 doses scheme)
+ * Outputs:
+ * 	 - Immunize Patient for Hepatitis B - No Doses
+ * References:
+ * 	- WHO recommendations for routine immunization - summary tables: https://www.who.int/teams/immunization-vaccines-and-biologicals/policies/who-recommendations-for-routine-immunization---summary-tables
+ * Logic:
+ *	 (&quot;Hepatitis B vaccine immunization history&quot; = &quot;No-doses&quot;)
+ */
+define &quot;Should vaccinate patient for Hepatitis B because no doses&quot;:
+	</a:s>
+               <a:s r="36">
+                  <a:s>(</a:s>
+                  <a:s r="36">
+                     <a:s>&quot;No-doses of HepB vaccine administered to patient&quot;</a:s>
+                  </a:s>
+                  <a:s>)</a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="36" locator="64:2-64:53" name="No-doses of HepB vaccine administered to patient" xsi:type="ExpressionRef"/>
+      </def>
+      <def localId="42" locator="69:1-70:59" name="1 dose" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="42">
+               <a:s>/* 
+ * @dataElement 1 dose
+ */
+define &quot;1 dose&quot;:
+	</a:s>
+               <a:s r="41">
+                  <a:s r="39">
+                     <a:s r="38">
+                        <a:s>IMMZCom</a:s>
+                     </a:s>
+                     <a:s>.</a:s>
+                     <a:s r="39">
+                        <a:s>&quot;Number of HepB Doses Administered to Patient&quot;</a:s>
+                     </a:s>
+                  </a:s>
+                  <a:s r="40"> = 1</a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="41" locator="70:2-70:59" xsi:type="Equal">
+            <operand localId="39" locator="70:2-70:55" name="Number of HepB Doses Administered to Patient" libraryName="IMMZCom" xsi:type="ExpressionRef"/>
+            <operand localId="40" locator="70:59" valueType="t:Integer" value="1" xsi:type="Literal"/>
+         </expression>
+      </def>
+      <def localId="50" locator="83:1-84:108" name="Should vaccinate patient for Hepatitis B because 1 dose" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="50">
+               <a:s>/*
+ * Rule: Should vaccinate patient for Hepatitis B because 1 dose
+ * Annotations:
+ * 	 - Provide Hepatitis B immunizations – using the &quot;Hepatitis B vaccine immunization – 1 PREVIOUS&quot; schedule (3 doses scheme)
+ * Outputs:
+ * 	 - Immunize Patient for Hepatitis B - 1 Dose
+ * References:
+ * 	- WHO recommendations for routine immunization - summary tables: https://www.who.int/teams/immunization-vaccines-and-biologicals/policies/who-recommendations-for-routine-immunization---summary-tables
+ * Logic:
+ *	 (&quot;Hepatitis B vaccine immunization history&quot; = &quot;1 dose&quot;)
+ */
+define &quot;Should vaccinate patient for Hepatitis B because 1 dose&quot;:
+	</a:s>
+               <a:s r="49">
+                  <a:s>(</a:s>
+                  <a:s r="49">
+                     <a:s r="43">
+                        <a:s>(</a:s>
+                        <a:s r="43">
+                           <a:s>&quot;1 dose&quot;</a:s>
+                        </a:s>
+                        <a:s>)</a:s>
+                     </a:s>
+                     <a:s> and </a:s>
+                     <a:s r="48">
+                        <a:s>(</a:s>
+                        <a:s r="48">
+                           <a:s r="45">
+                              <a:s r="44">
+                                 <a:s>IMMZCom</a:s>
+                              </a:s>
+                              <a:s>.</a:s>
+                              <a:s r="45">
+                                 <a:s>&quot;Date Last HepB Dose Administered to Patient&quot;</a:s>
+                              </a:s>
+                           </a:s>
+                           <a:s> </a:s>
+                           <a:s r="48">
+                              <a:s>more than </a:s>
+                              <a:s r="47">
+                                 <a:s>4 'weeks'</a:s>
+                              </a:s>
+                              <a:s> before</a:s>
+                           </a:s>
+                           <a:s> </a:s>
+                           <a:s r="46">
+                              <a:s>Today()</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s>)</a:s>
+                     </a:s>
+                  </a:s>
+                  <a:s>)</a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="49" locator="84:2-84:108" xsi:type="And">
+            <operand localId="43" locator="84:3-84:12" name="1 dose" xsi:type="ExpressionRef"/>
+            <operand localId="48" locator="84:18-84:107" xsi:type="Before">
+               <operand localId="45" locator="84:19-84:71" name="Date Last HepB Dose Administered to Patient" libraryName="IMMZCom" xsi:type="ExpressionRef"/>
+               <operand locator="84:100-84:106" xsi:type="Subtract">
+                  <operand localId="46" locator="84:100-84:106" xsi:type="Today"/>
+                  <operand localId="47" locator="84:83-84:91" value="4" unit="weeks" xsi:type="Quantity"/>
+               </operand>
+            </operand>
+         </expression>
+      </def>
+      <def localId="55" locator="89:1-90:59" name="2 doses" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="55">
+               <a:s>/* 
+ * @dataElement 2 doses
+ */
+define &quot;2 doses&quot;:
+	</a:s>
+               <a:s r="54">
+                  <a:s r="52">
+                     <a:s r="51">
+                        <a:s>IMMZCom</a:s>
+                     </a:s>
+                     <a:s>.</a:s>
+                     <a:s r="52">
+                        <a:s>&quot;Number of HepB Doses Administered to Patient&quot;</a:s>
+                     </a:s>
+                  </a:s>
+                  <a:s r="53"> = 2</a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="54" locator="90:2-90:59" xsi:type="Equal">
+            <operand localId="52" locator="90:2-90:55" name="Number of HepB Doses Administered to Patient" libraryName="IMMZCom" xsi:type="ExpressionRef"/>
+            <operand localId="53" locator="90:59" valueType="t:Integer" value="2" xsi:type="Literal"/>
+         </expression>
+      </def>
+      <def localId="63" locator="103:1-104:109" name="Should vaccinate patient for Hepatitis B because 2 doses" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="63">
+               <a:s>/*
+ * Rule: Should vaccinate patient for Hepatitis B because 2 doses
+ * Annotations:
+ * 	 - Provide Hepatitis B immunizations – using the &quot;Hepatitis B vaccine immunization – 2 PREVIOUS&quot; schedule (3 doses scheme)
+ * Outputs:
+ * 	 - Immunize Patient for Hepatitis B - 2 Doses
+ * References:
+ * 	- WHO recommendations for routine immunization - summary tables: https://www.who.int/teams/immunization-vaccines-and-biologicals/policies/who-recommendations-for-routine-immunization---summary-tables
+ * Logic:
+ *	 (&quot;Hepatitis B vaccine immunization history&quot; = &quot;2 doses&quot;)
+ */
+define &quot;Should vaccinate patient for Hepatitis B because 2 doses&quot;:
+	</a:s>
+               <a:s r="62">
+                  <a:s>(</a:s>
+                  <a:s r="62">
+                     <a:s r="56">
+                        <a:s>(</a:s>
+                        <a:s r="56">
+                           <a:s>&quot;2 doses&quot;</a:s>
+                        </a:s>
+                        <a:s>)</a:s>
+                     </a:s>
+                     <a:s> and </a:s>
+                     <a:s r="61">
+                        <a:s>(</a:s>
+                        <a:s r="61">
+                           <a:s r="58">
+                              <a:s r="57">
+                                 <a:s>IMMZCom</a:s>
+                              </a:s>
+                              <a:s>.</a:s>
+                              <a:s r="58">
+                                 <a:s>&quot;Date Last HepB Dose Administered to Patient&quot;</a:s>
+                              </a:s>
+                           </a:s>
+                           <a:s> </a:s>
+                           <a:s r="61">
+                              <a:s>more than </a:s>
+                              <a:s r="60">
+                                 <a:s>4 'weeks'</a:s>
+                              </a:s>
+                              <a:s> before</a:s>
+                           </a:s>
+                           <a:s> </a:s>
+                           <a:s r="59">
+                              <a:s>Today()</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s>)</a:s>
+                     </a:s>
+                  </a:s>
+                  <a:s>)</a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="62" locator="104:2-104:109" xsi:type="And">
+            <operand localId="56" locator="104:3-104:13" name="2 doses" xsi:type="ExpressionRef"/>
+            <operand localId="61" locator="104:19-104:108" xsi:type="Before">
+               <operand localId="58" locator="104:20-104:72" name="Date Last HepB Dose Administered to Patient" libraryName="IMMZCom" xsi:type="ExpressionRef"/>
+               <operand locator="104:101-104:107" xsi:type="Subtract">
+                  <operand localId="59" locator="104:101-104:107" xsi:type="Today"/>
+                  <operand localId="60" locator="104:84-104:92" value="4" unit="weeks" xsi:type="Quantity"/>
+               </operand>
+            </operand>
+         </expression>
+      </def>
+      <def localId="66" locator="116:1-117:57" name="Patient mother's pregnancy outcome observation" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="66">
+               <a:s>/* 
+
+ * @dataElement Patient mother's pregnancy outcome observation
+ */
+define &quot;Patient mother's pregnancy outcome observation&quot;:
+	</a:s>
+               <a:s r="65">
+                  <a:s r="64">
+                     <a:s>IMMZCom</a:s>
+                  </a:s>
+                  <a:s>.</a:s>
+                  <a:s r="65">
+                     <a:s>&quot;Patient mother's pregnancy outcome observation&quot;</a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="65" locator="117:2-117:57" name="Patient mother's pregnancy outcome observation" libraryName="IMMZCom" xsi:type="ExpressionRef"/>
+      </def>
+      <def localId="69" locator="122:1-123:27" name="preterm" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="69">
+               <a:s>/* 
+ * @dataElement preterm
+ */
+define &quot;preterm&quot;:
+    </a:s>
+               <a:s r="68">
+                  <a:s r="67">
+                     <a:s>IMMZCom</a:s>
+                  </a:s>
+                  <a:s>.</a:s>
+                  <a:s r="68">
+                     <a:s>&quot;Preterm Birth&quot;</a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="68" locator="123:5-123:27" name="Preterm Birth" libraryName="IMMZCom" xsi:type="ExpressionRef"/>
+      </def>
+   </statements>
+</library>

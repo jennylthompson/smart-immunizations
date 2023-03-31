@@ -1,0 +1,124 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<http://fhir.org/guides/who/smart-immunization/PlanDefinition/IMMZ.DT.02.HepatitisB> a fhir:PlanDefinition ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:id [ fhir:v "IMMZ.DT.02.HepatitisB"] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "generated" ] ;
+     fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Generated Narrative: PlanDefinition</b><a name=\"IMMZ.DT.02.HepatitisB\"> </a></p><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\">Resource PlanDefinition &quot;IMMZ.DT.02.HepatitisB&quot; </p></div><p><b>url</b>: <code>http://fhir.org/guides/who/smart-immunization/PlanDefinition/IMMZ.DT.02.HepatitisB</code></p><p><b>version</b>: 0.1.0</p><p><b>name</b>: IMMZ.DT.02.HepatitisB</p><p><b>title</b>: IMMZ.DT.02.HepatitisB</p><p><b>status</b>: draft</p><p><b>date</b>: 2023-03-31 14:00:01+0000</p><p><b>publisher</b>: World Health Organization (WHO)</p><p><b>description</b>: If child or person has not been vaccinated, give Hepatitis B vaccine as soon as possible after birth</p><p><b>jurisdiction</b>: Global (Whole world) <span style=\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"> (m49.htm#001)</span></p><p><b>library</b>: <a href=\"Library-library-IMMZDT02.html\">IMMZDT02</a></p><blockquote><p><b>action</b></p><p><b>title</b>: Immunize Patient for Hepatitis B - No Doses and Premature birth or low birth weight</p><p><b>description</b>: Provide Hepatitis B immunizations – using the &quot;Hepatitis B vaccine immunization – Birth dose&quot; schedule (Birth dose)</p><blockquote><p><b>condition</b></p><p><b>kind</b>: applicability</p><h3>Expressions</h3><table class=\"grid\"><tr><td>-</td><td><b>Description</b></td><td><b>Language</b></td><td><b>Expression</b></td></tr><tr><td>*</td><td>&quot;Hepatitis B vaccine immunization history&quot; = &quot;No-doses&quot;</td><td>text/cql</td><td>Should vaccinate patient for Hepatitis B because no doses and (low birth weight or premature infant)</td></tr></table></blockquote><blockquote><p><b>condition</b></p><p><b>kind</b>: applicability</p><h3>Expressions</h3><table class=\"grid\"><tr><td>-</td><td><b>Description</b></td><td><b>Language</b></td><td><b>Expression</b></td></tr><tr><td>*</td><td>&quot;Patient birth weight observation value&quot; &lt; &quot;2000g&quot;</td><td>text/cql</td><td>Should vaccinate patient for Hepatitis B because no doses and (low birth weight or premature infant)</td></tr></table></blockquote><blockquote><p><b>condition</b></p><p><b>kind</b>: applicability</p><h3>Expressions</h3><table class=\"grid\"><tr><td>-</td><td><b>Description</b></td><td><b>Language</b></td><td><b>Expression</b></td></tr><tr><td>*</td><td>&quot;Current Patient Age in Weeks&quot; &lt; 2</td><td>text/cql</td><td>Should vaccinate patient for Hepatitis B because no doses and (low birth weight or premature infant)</td></tr></table></blockquote><p><b>definition</b>: <a href=\"ActivityDefinition-IMMZ.DT.02.HepatitisB.01.html\">IMMZ.DT.02.HepatitisB.01</a></p></blockquote><blockquote><p><b>action</b></p><p><b>title</b>: Immunize Patient for Hepatitis B - No Doses</p><p><b>description</b>: Provide Hepatitis B immunizations – using the &quot;Hepatitis B vaccine immunization – NO PREVIOUS&quot; schedule (3 doses scheme)</p><blockquote><p><b>condition</b></p><p><b>kind</b>: applicability</p><h3>Expressions</h3><table class=\"grid\"><tr><td>-</td><td><b>Description</b></td><td><b>Language</b></td><td><b>Expression</b></td></tr><tr><td>*</td><td>&quot;Hepatitis B vaccine immunization history&quot; = &quot;No-doses&quot;</td><td>text/cql</td><td>Should vaccinate patient for Hepatitis B because no doses</td></tr></table></blockquote><p><b>definition</b>: <a href=\"ActivityDefinition-IMMZ.DT.02.HepatitisB.03.html\">IMMZ.DT.02.HepatitisB.03</a></p></blockquote><blockquote><p><b>action</b></p><p><b>title</b>: Immunize Patient for Hepatitis B - 1 Dose</p><p><b>description</b>: Provide Hepatitis B immunizations – using the &quot;Hepatitis B vaccine immunization – 1 PREVIOUS&quot; schedule (3 doses scheme)</p><blockquote><p><b>condition</b></p><p><b>kind</b>: applicability</p><h3>Expressions</h3><table class=\"grid\"><tr><td>-</td><td><b>Description</b></td><td><b>Language</b></td><td><b>Expression</b></td></tr><tr><td>*</td><td>&quot;Hepatitis B vaccine immunization history&quot; = &quot;1 dose&quot;</td><td>text/cql</td><td>Should vaccinate patient for Hepatitis B because 1 dose</td></tr></table></blockquote><blockquote><p><b>condition</b></p><p><b>kind</b>: applicability</p><h3>Expressions</h3><table class=\"grid\"><tr><td>-</td><td><b>Description</b></td><td><b>Language</b></td><td><b>Expression</b></td></tr><tr><td>*</td><td>&quot;Date last Hepatitis B dose given&quot; &gt;= &quot;4 weeks&quot;</td><td>text/cql</td><td>Should vaccinate patient for Hepatitis B because 1 dose</td></tr></table></blockquote><p><b>definition</b>: <a href=\"ActivityDefinition-IMMZ.DT.02.HepatitisB.04.html\">IMMZ.DT.02.HepatitisB.04</a></p></blockquote><blockquote><p><b>action</b></p><p><b>title</b>: Immunize Patient for Hepatitis B - 2 Doses</p><p><b>description</b>: Provide Hepatitis B immunizations – using the &quot;Hepatitis B vaccine immunization – 2 PREVIOUS&quot; schedule (3 doses scheme)</p><blockquote><p><b>condition</b></p><p><b>kind</b>: applicability</p><h3>Expressions</h3><table class=\"grid\"><tr><td>-</td><td><b>Description</b></td><td><b>Language</b></td><td><b>Expression</b></td></tr><tr><td>*</td><td>&quot;Hepatitis B vaccine immunization history&quot; = &quot;2 doses&quot;</td><td>text/cql</td><td>Should vaccinate patient for Hepatitis B because 2 doses</td></tr></table></blockquote><blockquote><p><b>condition</b></p><p><b>kind</b>: applicability</p><h3>Expressions</h3><table class=\"grid\"><tr><td>-</td><td><b>Description</b></td><td><b>Language</b></td><td><b>Expression</b></td></tr><tr><td>*</td><td>&quot;Date last Hepatitis B dose given&quot; &gt;= &quot;4 weeks&quot;</td><td>text/cql</td><td>Should vaccinate patient for Hepatitis B because 2 doses</td></tr></table></blockquote><p><b>definition</b>: <a href=\"ActivityDefinition-IMMZ.DT.02.HepatitisB.05.html\">IMMZ.DT.02.HepatitisB.05</a></p></blockquote></div>"
+  ] ; # 
+  fhir:url [ fhir:v "http://fhir.org/guides/who/smart-immunization/PlanDefinition/IMMZ.DT.02.HepatitisB"^^xsd:anyURI] ; # 
+  fhir:version [ fhir:v "0.1.0"] ; # 
+  fhir:name [ fhir:v "IMMZ.DT.02.HepatitisB"] ; # 
+  fhir:title [ fhir:v "IMMZ.DT.02.HepatitisB"] ; # 
+  fhir:status [ fhir:v "draft"] ; # 
+  fhir:date [ fhir:v "2023-03-31T14:00:01+00:00"^^xsd:dateTime] ; # 
+  fhir:publisher [ fhir:v "World Health Organization (WHO)"] ; # 
+  fhir:description [ fhir:v "If child or person has not been vaccinated, give Hepatitis B vaccine as soon as possible after birth"] ; # 
+  fhir:jurisdiction ( [
+     fhir:coding ( [
+       fhir:system [ fhir:v "http://unstats.un.org/unsd/methods/m49/m49.htm"^^xsd:anyURI ] ;
+       fhir:code [ fhir:v "001" ]
+     ] )
+  ] ) ; # 
+  fhir:library ( [
+     fhir:v "http://fhir.org/guides/who/smart-immunization/Library/IMMZDT02"^^xsd:anyURI ;
+     fhir:link <http://fhir.org/guides/who/smart-immunization/Library/IMMZDT02>
+  ] ) ; # 
+  fhir:action ( [
+     fhir:title [ fhir:v "Immunize Patient for Hepatitis B - No Doses and Premature birth or low birth weight" ] ;
+     fhir:description [ fhir:v "Provide Hepatitis B immunizations – using the \"Hepatitis B vaccine immunization – Birth dose\" schedule (Birth dose)" ] ;
+     fhir:condition ( [
+       fhir:kind [ fhir:v "applicability" ] ;
+       fhir:expression [
+         fhir:description [ fhir:v "\"Hepatitis B vaccine immunization history\" = \"No-doses\"" ] ;
+         fhir:language [ fhir:v "text/cql" ] ;
+         fhir:expression [ fhir:v "Should vaccinate patient for Hepatitis B because no doses and (low birth weight or premature infant)" ]
+       ]
+     ] [
+       fhir:kind [ fhir:v "applicability" ] ;
+       fhir:expression [
+         fhir:description [ fhir:v "\"Patient birth weight observation value\" < \"2000g\"" ] ;
+         fhir:language [ fhir:v "text/cql" ] ;
+         fhir:expression [ fhir:v "Should vaccinate patient for Hepatitis B because no doses and (low birth weight or premature infant)" ]
+       ]
+     ] [
+       fhir:kind [ fhir:v "applicability" ] ;
+       fhir:expression [
+         fhir:description [ fhir:v "\"Current Patient Age in Weeks\" < 2" ] ;
+         fhir:language [ fhir:v "text/cql" ] ;
+         fhir:expression [ fhir:v "Should vaccinate patient for Hepatitis B because no doses and (low birth weight or premature infant)" ]
+       ]
+     ] ) ;
+     fhir:definition [
+       fhir:v "http://fhir.org/guides/who/smart-immunization/ActivityDefinition/IMMZ.DT.02.HepatitisB.01"^^xsd:anyURI ;
+       fhir:link <http://fhir.org/guides/who/smart-immunization/ActivityDefinition/IMMZ.DT.02.HepatitisB.01>
+     ]
+  ] [
+     fhir:title [ fhir:v "Immunize Patient for Hepatitis B - No Doses" ] ;
+     fhir:description [ fhir:v "Provide Hepatitis B immunizations – using the \"Hepatitis B vaccine immunization – NO PREVIOUS\" schedule (3 doses scheme)" ] ;
+     fhir:condition ( [
+       fhir:kind [ fhir:v "applicability" ] ;
+       fhir:expression [
+         fhir:description [ fhir:v "\"Hepatitis B vaccine immunization history\" = \"No-doses\"" ] ;
+         fhir:language [ fhir:v "text/cql" ] ;
+         fhir:expression [ fhir:v "Should vaccinate patient for Hepatitis B because no doses" ]
+       ]
+     ] ) ;
+     fhir:definition [
+       fhir:v "http://fhir.org/guides/who/smart-immunization/ActivityDefinition/IMMZ.DT.02.HepatitisB.03"^^xsd:anyURI ;
+       fhir:link <http://fhir.org/guides/who/smart-immunization/ActivityDefinition/IMMZ.DT.02.HepatitisB.03>
+     ]
+  ] [
+     fhir:title [ fhir:v "Immunize Patient for Hepatitis B - 1 Dose" ] ;
+     fhir:description [ fhir:v "Provide Hepatitis B immunizations – using the \"Hepatitis B vaccine immunization – 1 PREVIOUS\" schedule (3 doses scheme)" ] ;
+     fhir:condition ( [
+       fhir:kind [ fhir:v "applicability" ] ;
+       fhir:expression [
+         fhir:description [ fhir:v "\"Hepatitis B vaccine immunization history\" = \"1 dose\"" ] ;
+         fhir:language [ fhir:v "text/cql" ] ;
+         fhir:expression [ fhir:v "Should vaccinate patient for Hepatitis B because 1 dose" ]
+       ]
+     ] [
+       fhir:kind [ fhir:v "applicability" ] ;
+       fhir:expression [
+         fhir:description [ fhir:v "\"Date last Hepatitis B dose given\" >= \"4 weeks\"" ] ;
+         fhir:language [ fhir:v "text/cql" ] ;
+         fhir:expression [ fhir:v "Should vaccinate patient for Hepatitis B because 1 dose" ]
+       ]
+     ] ) ;
+     fhir:definition [
+       fhir:v "http://fhir.org/guides/who/smart-immunization/ActivityDefinition/IMMZ.DT.02.HepatitisB.04"^^xsd:anyURI ;
+       fhir:link <http://fhir.org/guides/who/smart-immunization/ActivityDefinition/IMMZ.DT.02.HepatitisB.04>
+     ]
+  ] [
+     fhir:title [ fhir:v "Immunize Patient for Hepatitis B - 2 Doses" ] ;
+     fhir:description [ fhir:v "Provide Hepatitis B immunizations – using the \"Hepatitis B vaccine immunization – 2 PREVIOUS\" schedule (3 doses scheme)" ] ;
+     fhir:condition ( [
+       fhir:kind [ fhir:v "applicability" ] ;
+       fhir:expression [
+         fhir:description [ fhir:v "\"Hepatitis B vaccine immunization history\" = \"2 doses\"" ] ;
+         fhir:language [ fhir:v "text/cql" ] ;
+         fhir:expression [ fhir:v "Should vaccinate patient for Hepatitis B because 2 doses" ]
+       ]
+     ] [
+       fhir:kind [ fhir:v "applicability" ] ;
+       fhir:expression [
+         fhir:description [ fhir:v "\"Date last Hepatitis B dose given\" >= \"4 weeks\"" ] ;
+         fhir:language [ fhir:v "text/cql" ] ;
+         fhir:expression [ fhir:v "Should vaccinate patient for Hepatitis B because 2 doses" ]
+       ]
+     ] ) ;
+     fhir:definition [
+       fhir:v "http://fhir.org/guides/who/smart-immunization/ActivityDefinition/IMMZ.DT.02.HepatitisB.05"^^xsd:anyURI ;
+       fhir:link <http://fhir.org/guides/who/smart-immunization/ActivityDefinition/IMMZ.DT.02.HepatitisB.05>
+     ]
+  ] ) . # 
+
+# -------------------------------------------------------------------------------------
+
