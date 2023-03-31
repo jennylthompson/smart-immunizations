@@ -1,0 +1,302 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<http://fhir.org/guides/who/smart-immunization/PlanDefinition/IMMZ.DT.10.HPV> a fhir:PlanDefinition ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:id [ fhir:v "IMMZ.DT.10.HPV"] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "generated" ] ;
+     fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Generated Narrative: PlanDefinition</b><a name=\"IMMZ.DT.10.HPV\"> </a></p><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\">Resource PlanDefinition &quot;IMMZ.DT.10.HPV&quot; </p></div><p><b>url</b>: <code>http://fhir.org/guides/who/smart-immunization/PlanDefinition/IMMZ.DT.10.HPV</code></p><p><b>version</b>: 0.1.0</p><p><b>name</b>: IMMZ.DT.10.HPV</p><p><b>title</b>: IMMZ.DT.10.HPV</p><p><b>status</b>: draft</p><p><b>date</b>: 2023-03-31 14:00:01+0000</p><p><b>publisher</b>: World Health Organization (WHO)</p><p><b>description</b>: If child or person has not been vaccinated, give HPV vaccine according to the defined schedule</p><p><b>jurisdiction</b>: Global (Whole world) <span style=\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"> (m49.htm#001)</span></p><p><b>library</b>: <a href=\"Library-IMMZDT10.html\">IMMZDT10</a></p><blockquote><p><b>action</b></p><p><b>title</b>: Immunize Patient for HPV - No Doses</p><p><b>description</b>: Provide HPV immunizations - using the &quot;HPV vaccine immunization - NO PREVIOUS&quot; schedule (2 dose scheme)</p><blockquote><p><b>condition</b></p><p><b>kind</b>: applicability</p><h3>Expressions</h3><table class=\"grid\"><tr><td>-</td><td><b>Description</b></td><td><b>Language</b></td><td><b>Expression</b></td></tr><tr><td>*</td><td>&quot;HPV vaccine history&quot; = &quot;No-doses&quot;</td><td>text/cql</td><td>Should vaccinate Patient for HPV because no doses on a two-dose schedule</td></tr></table></blockquote><blockquote><p><b>condition</b></p><p><b>kind</b>: applicability</p><h3>Expressions</h3><table class=\"grid\"><tr><td>-</td><td><b>Description</b></td><td><b>Language</b></td><td><b>Expression</b></td></tr><tr><td>*</td><td>&quot;Sex&quot; = &quot;Female&quot;</td><td>text/cql</td><td>Should vaccinate Patient for HPV because no doses on a two-dose schedule</td></tr></table></blockquote><blockquote><p><b>condition</b></p><p><b>kind</b>: applicability</p><h3>Expressions</h3><table class=\"grid\"><tr><td>-</td><td><b>Description</b></td><td><b>Language</b></td><td><b>Expression</b></td></tr><tr><td>*</td><td>&quot;Current Patient Age in Years&quot; &gt;= 9</td><td>text/cql</td><td>Should vaccinate Patient for HPV because no doses on a two-dose schedule</td></tr></table></blockquote><blockquote><p><b>condition</b></p><p><b>kind</b>: applicability</p><h3>Expressions</h3><table class=\"grid\"><tr><td>-</td><td><b>Description</b></td><td><b>Language</b></td><td><b>Expression</b></td></tr><tr><td>*</td><td>&quot;Current Patient Age in Years&quot; &lt;= 14</td><td>text/cql</td><td>Should vaccinate Patient for HPV because no doses on a two-dose schedule</td></tr></table></blockquote><p><b>definition</b>: <a href=\"ActivityDefinition-IMMZ.DT.10.HPV.01.html\">IMMZ.DT.10.HPV.01</a></p></blockquote><blockquote><p><b>action</b></p><p><b>title</b>: Immunize Patient for HPV - 1 Dose</p><p><b>description</b>: Provide HPV immunizations - using &quot;HPV vaccine immunization - 1 PREVIOUS&quot; schedule (2 dose scheme)</p><blockquote><p><b>condition</b></p><p><b>kind</b>: applicability</p><h3>Expressions</h3><table class=\"grid\"><tr><td>-</td><td><b>Description</b></td><td><b>Language</b></td><td><b>Expression</b></td></tr><tr><td>*</td><td>&quot;HPV vaccine history&quot; = &quot;1 dose&quot;</td><td>text/cql</td><td>Should vaccinate Patient for HPV a second time on a two-dose schedule</td></tr></table></blockquote><blockquote><p><b>condition</b></p><p><b>kind</b>: applicability</p><h3>Expressions</h3><table class=\"grid\"><tr><td>-</td><td><b>Description</b></td><td><b>Language</b></td><td><b>Expression</b></td></tr><tr><td>*</td><td>&quot;Sex&quot; = &quot;Female&quot;</td><td>text/cql</td><td>Should vaccinate Patient for HPV a second time on a two-dose schedule</td></tr></table></blockquote><blockquote><p><b>condition</b></p><p><b>kind</b>: applicability</p><h3>Expressions</h3><table class=\"grid\"><tr><td>-</td><td><b>Description</b></td><td><b>Language</b></td><td><b>Expression</b></td></tr><tr><td>*</td><td>&quot;Current Patient Age in Years&quot; &gt;=  9</td><td>text/cql</td><td>Should vaccinate Patient for HPV a second time on a two-dose schedule</td></tr></table></blockquote><blockquote><p><b>condition</b></p><p><b>kind</b>: applicability</p><h3>Expressions</h3><table class=\"grid\"><tr><td>-</td><td><b>Description</b></td><td><b>Language</b></td><td><b>Expression</b></td></tr><tr><td>*</td><td>&quot;Current Patient Age in Years&quot; &lt;= 14</td><td>text/cql</td><td>Should vaccinate Patient for HPV a second time on a two-dose schedule</td></tr></table></blockquote><blockquote><p><b>condition</b></p><p><b>kind</b>: applicability</p><h3>Expressions</h3><table class=\"grid\"><tr><td>-</td><td><b>Description</b></td><td><b>Language</b></td><td><b>Expression</b></td></tr><tr><td>*</td><td>&quot;Date last HPV dose given&quot; &gt;= &quot;6 months&quot;</td><td>text/cql</td><td>Should vaccinate Patient for HPV a second time on a two-dose schedule</td></tr></table></blockquote><blockquote><p><b>condition</b></p><p><b>kind</b>: applicability</p><h3>Expressions</h3><table class=\"grid\"><tr><td>-</td><td><b>Description</b></td><td><b>Language</b></td><td><b>Expression</b></td></tr><tr><td>*</td><td>&quot;Date last HPV dose given&quot; &lt;= &quot;12 months&quot;</td><td>text/cql</td><td>Should vaccinate Patient for HPV a second time on a two-dose schedule</td></tr></table></blockquote><p><b>definition</b>: <a href=\"ActivityDefinition-IMMZ.DT.10.HPV.02.html\">IMMZ.DT.10.HPV.02</a></p></blockquote><blockquote><p><b>action</b></p><p><b>title</b>: Immunize Patient for HPV - 2 Doses</p><p><b>description</b>: Provide additional HPV immunizations - using &quot;HPV vaccination immunization - 2 PREVIOUS&quot; schedule (2+1 dose scheme)</p><blockquote><p><b>condition</b></p><p><b>kind</b>: applicability</p><h3>Expressions</h3><table class=\"grid\"><tr><td>-</td><td><b>Description</b></td><td><b>Language</b></td><td><b>Expression</b></td></tr><tr><td>*</td><td>&quot;HPV vaccine history&quot; = &quot;2 doses&quot;</td><td>text/cql</td><td>Should vaccinate Patient for HPV Dose 3 - due to short interval between first and second dose</td></tr></table></blockquote><blockquote><p><b>condition</b></p><p><b>kind</b>: applicability</p><h3>Expressions</h3><table class=\"grid\"><tr><td>-</td><td><b>Description</b></td><td><b>Language</b></td><td><b>Expression</b></td></tr><tr><td>*</td><td>&quot;Sex&quot; = &quot;Female&quot;</td><td>text/cql</td><td>Should vaccinate Patient for HPV Dose 3 - due to short interval between first and second dose</td></tr></table></blockquote><blockquote><p><b>condition</b></p><p><b>kind</b>: applicability</p><h3>Expressions</h3><table class=\"grid\"><tr><td>-</td><td><b>Description</b></td><td><b>Language</b></td><td><b>Expression</b></td></tr><tr><td>*</td><td>&quot;Time between first and second HPV doses in Months&quot; &lt; 5</td><td>text/cql</td><td>Should vaccinate Patient for HPV Dose 3 - due to short interval between first and second dose</td></tr></table></blockquote><blockquote><p><b>condition</b></p><p><b>kind</b>: applicability</p><h3>Expressions</h3><table class=\"grid\"><tr><td>-</td><td><b>Description</b></td><td><b>Language</b></td><td><b>Expression</b></td></tr><tr><td>*</td><td>&quot;Time since initial HPV dose in Months&quot; &gt;= 6</td><td>text/cql</td><td>Should vaccinate Patient for HPV Dose 3 - due to short interval between first and second dose</td></tr></table></blockquote><blockquote><p><b>condition</b></p><p><b>kind</b>: applicability</p><h3>Expressions</h3><table class=\"grid\"><tr><td>-</td><td><b>Description</b></td><td><b>Language</b></td><td><b>Expression</b></td></tr><tr><td>*</td><td>&quot;Current Patient Age in Years&quot; &gt;= 9</td><td>text/cql</td><td>Should vaccinate Patient for HPV Dose 3 - due to short interval between first and second dose</td></tr></table></blockquote><blockquote><p><b>condition</b></p><p><b>kind</b>: applicability</p><h3>Expressions</h3><table class=\"grid\"><tr><td>-</td><td><b>Description</b></td><td><b>Language</b></td><td><b>Expression</b></td></tr><tr><td>*</td><td>&quot;Current Patient Age in Years&quot; &lt;= 14</td><td>text/cql</td><td>Should vaccinate Patient for HPV Dose 3 - due to short interval between first and second dose</td></tr></table></blockquote><p><b>definition</b>: <a href=\"ActivityDefinition-IMMZ.DT.10.HPV.03.html\">IMMZ.DT.10.HPV.03</a></p></blockquote><blockquote><p><b>action</b></p><p><b>title</b>: Immunize Patient for HPV - No Doses</p><p><b>description</b>: Provide HPV immunizations - using the &quot;HPV vaccine immunization - NO PREVIOUS&quot; schedule (3 dose scheme)</p><blockquote><p><b>condition</b></p><p><b>kind</b>: applicability</p><h3>Expressions</h3><table class=\"grid\"><tr><td>-</td><td><b>Description</b></td><td><b>Language</b></td><td><b>Expression</b></td></tr><tr><td>*</td><td>&quot;HPV vaccine history&quot; = &quot;No-doses&quot;</td><td>text/cql</td><td>Should vaccinate Patient for HPV because no doses on a three-dose schedule</td></tr></table></blockquote><blockquote><p><b>condition</b></p><p><b>kind</b>: applicability</p><h3>Expressions</h3><table class=\"grid\"><tr><td>-</td><td><b>Description</b></td><td><b>Language</b></td><td><b>Expression</b></td></tr><tr><td>*</td><td>&quot;Sex&quot; = &quot;Female&quot;</td><td>text/cql</td><td>Should vaccinate Patient for HPV because no doses on a three-dose schedule</td></tr></table></blockquote><blockquote><p><b>condition</b></p><p><b>kind</b>: applicability</p><h3>Expressions</h3><table class=\"grid\"><tr><td>-</td><td><b>Description</b></td><td><b>Language</b></td><td><b>Expression</b></td></tr><tr><td>*</td><td>&quot;Current Patient Age in Years&quot; &gt;= 15</td><td>text/cql</td><td>Should vaccinate Patient for HPV because no doses on a three-dose schedule</td></tr></table></blockquote><p><b>definition</b>: <a href=\"ActivityDefinition-IMMZ.DT.10.HPV.04.html\">IMMZ.DT.10.HPV.04</a></p></blockquote><blockquote><p><b>action</b></p><p><b>title</b>: Immunize Patient for HPV - No Doses</p><p><b>description</b>: Provide HPV immunizations - using the &quot;HPV vaccine immunization - NO PREVIOUS&quot; schedule (3 dose scheme)</p><blockquote><p><b>condition</b></p><p><b>kind</b>: applicability</p><h3>Expressions</h3><table class=\"grid\"><tr><td>-</td><td><b>Description</b></td><td><b>Language</b></td><td><b>Expression</b></td></tr><tr><td>*</td><td>&quot;Current Patient Age in Years&quot; &lt; 15</td><td>text/cql</td><td>Should vaccinate Patient for HPV because no doses on a three-dose schedule</td></tr></table></blockquote><blockquote><p><b>condition</b></p><p><b>kind</b>: applicability</p><h3>Expressions</h3><table class=\"grid\"><tr><td>-</td><td><b>Description</b></td><td><b>Language</b></td><td><b>Expression</b></td></tr><tr><td>*</td><td>&quot;Immunocompromised&quot; = &quot;True&quot;</td><td>text/cql</td><td>Should vaccinate Patient for HPV because no doses on a three-dose schedule</td></tr></table></blockquote><p><b>definition</b>: <a href=\"ActivityDefinition-IMMZ.DT.10.HPV.05.html\">IMMZ.DT.10.HPV.05</a></p></blockquote><blockquote><p><b>action</b></p><p><b>title</b>: Immunize Patient for HPV - 1 Dose</p><p><b>description</b>: Provide HPV immunizations - using the &quot;HPV vaccine immunization -  ONE PREVIOUS&quot; schedule (3 dose scheme)</p><blockquote><p><b>condition</b></p><p><b>kind</b>: applicability</p><h3>Expressions</h3><table class=\"grid\"><tr><td>-</td><td><b>Description</b></td><td><b>Language</b></td><td><b>Expression</b></td></tr><tr><td>*</td><td>&quot;HPV vaccine history&quot; = &quot;1 dose&quot;</td><td>text/cql</td><td>Should vaccinate Patient for HPV because one dose on a three-dose schedule</td></tr></table></blockquote><blockquote><p><b>condition</b></p><p><b>kind</b>: applicability</p><h3>Expressions</h3><table class=\"grid\"><tr><td>-</td><td><b>Description</b></td><td><b>Language</b></td><td><b>Expression</b></td></tr><tr><td>*</td><td>&quot;Sex&quot; = &quot;Female&quot;</td><td>text/cql</td><td>Should vaccinate Patient for HPV because one dose on a three-dose schedule</td></tr></table></blockquote><blockquote><p><b>condition</b></p><p><b>kind</b>: applicability</p><h3>Expressions</h3><table class=\"grid\"><tr><td>-</td><td><b>Description</b></td><td><b>Language</b></td><td><b>Expression</b></td></tr><tr><td>*</td><td>&quot;Current Patient Age in  Years&quot; &gt;= 15</td><td>text/cql</td><td>Should vaccinate Patient for HPV because one dose on a three-dose schedule</td></tr></table></blockquote><blockquote><p><b>condition</b></p><p><b>kind</b>: applicability</p><h3>Expressions</h3><table class=\"grid\"><tr><td>-</td><td><b>Description</b></td><td><b>Language</b></td><td><b>Expression</b></td></tr><tr><td>*</td><td>&quot;Date last HPV dose given&quot; &gt;= &quot;1 month&quot;</td><td>text/cql</td><td>Should vaccinate Patient for HPV because one dose on a three-dose schedule</td></tr></table></blockquote><blockquote><p><b>condition</b></p><p><b>kind</b>: applicability</p><h3>Expressions</h3><table class=\"grid\"><tr><td>-</td><td><b>Description</b></td><td><b>Language</b></td><td><b>Expression</b></td></tr><tr><td>*</td><td>&quot;Date last HPV does given&quot; &lt;= &quot;2 months&quot;</td><td>text/cql</td><td>Should vaccinate Patient for HPV because one dose on a three-dose schedule</td></tr></table></blockquote><p><b>definition</b>: <a href=\"ActivityDefinition-IMMZ.DT.10.HPV.06.html\">IMMZ.DT.10.HPV.06</a></p></blockquote><blockquote><p><b>action</b></p><p><b>title</b>: Immunize Patient for HPV - 2 Doses</p><p><b>description</b>: Provide HPV immunizations - using the &quot;HPV vaccine immunization -  TWO PREVIOUS&quot; schedule (3 dose scheme)</p><blockquote><p><b>condition</b></p><p><b>kind</b>: applicability</p><h3>Expressions</h3><table class=\"grid\"><tr><td>-</td><td><b>Description</b></td><td><b>Language</b></td><td><b>Expression</b></td></tr><tr><td>*</td><td>&quot;HPV vaccine history&quot; = &quot;2 doses&quot;</td><td>text/cql</td><td>Should vaccinate Patient for HPV because two doses on a three-dose schedule</td></tr></table></blockquote><blockquote><p><b>condition</b></p><p><b>kind</b>: applicability</p><h3>Expressions</h3><table class=\"grid\"><tr><td>-</td><td><b>Description</b></td><td><b>Language</b></td><td><b>Expression</b></td></tr><tr><td>*</td><td>&quot;Sex&quot; = &quot;Female&quot;</td><td>text/cql</td><td>Should vaccinate Patient for HPV because two doses on a three-dose schedule</td></tr></table></blockquote><blockquote><p><b>condition</b></p><p><b>kind</b>: applicability</p><h3>Expressions</h3><table class=\"grid\"><tr><td>-</td><td><b>Description</b></td><td><b>Language</b></td><td><b>Expression</b></td></tr><tr><td>*</td><td>&quot;Current Patient Age in Years&quot; &gt;= 15</td><td>text/cql</td><td>Should vaccinate Patient for HPV because two doses on a three-dose schedule</td></tr></table></blockquote><blockquote><p><b>condition</b></p><p><b>kind</b>: applicability</p><h3>Expressions</h3><table class=\"grid\"><tr><td>-</td><td><b>Description</b></td><td><b>Language</b></td><td><b>Expression</b></td></tr><tr><td>*</td><td>&quot;Date last HPV dose given&quot; &gt;= &quot;6 months&quot;</td><td>text/cql</td><td>Should vaccinate Patient for HPV because two doses on a three-dose schedule</td></tr></table></blockquote><p><b>definition</b>: <a href=\"ActivityDefinition-IMMZ.DT.10.HPV.08.html\">IMMZ.DT.10.HPV.08</a></p></blockquote></div>"
+  ] ; # 
+  fhir:url [ fhir:v "http://fhir.org/guides/who/smart-immunization/PlanDefinition/IMMZ.DT.10.HPV"^^xsd:anyURI] ; # 
+  fhir:version [ fhir:v "0.1.0"] ; # 
+  fhir:name [ fhir:v "IMMZ.DT.10.HPV"] ; # 
+  fhir:title [ fhir:v "IMMZ.DT.10.HPV"] ; # 
+  fhir:status [ fhir:v "draft"] ; # 
+  fhir:date [ fhir:v "2023-03-31T14:00:01+00:00"^^xsd:dateTime] ; # 
+  fhir:publisher [ fhir:v "World Health Organization (WHO)"] ; # 
+  fhir:description [ fhir:v "If child or person has not been vaccinated, give HPV vaccine according to the defined schedule"] ; # 
+  fhir:jurisdiction ( [
+     fhir:coding ( [
+       fhir:system [ fhir:v "http://unstats.un.org/unsd/methods/m49/m49.htm"^^xsd:anyURI ] ;
+       fhir:code [ fhir:v "001" ]
+     ] )
+  ] ) ; # 
+  fhir:library ( [
+     fhir:v "http://fhir.org/guides/who/smart-immunization/Library/IMMZDT10"^^xsd:anyURI ;
+     fhir:link <http://fhir.org/guides/who/smart-immunization/Library/IMMZDT10>
+  ] ) ; # 
+  fhir:action ( [
+     fhir:title [ fhir:v "Immunize Patient for HPV - No Doses" ] ;
+     fhir:description [ fhir:v "Provide HPV immunizations - using the \"HPV vaccine immunization - NO PREVIOUS\" schedule (2 dose scheme)" ] ;
+     fhir:condition ( [
+       fhir:kind [ fhir:v "applicability" ] ;
+       fhir:expression [
+         fhir:description [ fhir:v "\"HPV vaccine history\" = \"No-doses\"" ] ;
+         fhir:language [ fhir:v "text/cql" ] ;
+         fhir:expression [ fhir:v "Should vaccinate Patient for HPV because no doses on a two-dose schedule" ]
+       ]
+     ] [
+       fhir:kind [ fhir:v "applicability" ] ;
+       fhir:expression [
+         fhir:description [ fhir:v "\"Sex\" = \"Female\"" ] ;
+         fhir:language [ fhir:v "text/cql" ] ;
+         fhir:expression [ fhir:v "Should vaccinate Patient for HPV because no doses on a two-dose schedule" ]
+       ]
+     ] [
+       fhir:kind [ fhir:v "applicability" ] ;
+       fhir:expression [
+         fhir:description [ fhir:v "\"Current Patient Age in Years\" >= 9" ] ;
+         fhir:language [ fhir:v "text/cql" ] ;
+         fhir:expression [ fhir:v "Should vaccinate Patient for HPV because no doses on a two-dose schedule" ]
+       ]
+     ] [
+       fhir:kind [ fhir:v "applicability" ] ;
+       fhir:expression [
+         fhir:description [ fhir:v "\"Current Patient Age in Years\" <= 14" ] ;
+         fhir:language [ fhir:v "text/cql" ] ;
+         fhir:expression [ fhir:v "Should vaccinate Patient for HPV because no doses on a two-dose schedule" ]
+       ]
+     ] ) ;
+     fhir:definition [
+       fhir:v "http://fhir.org/guides/who/smart-immunization/ActivityDefinition/IMMZ.DT.10.HPV.01"^^xsd:anyURI ;
+       fhir:link <http://fhir.org/guides/who/smart-immunization/ActivityDefinition/IMMZ.DT.10.HPV.01>
+     ]
+  ] [
+     fhir:title [ fhir:v "Immunize Patient for HPV - 1 Dose" ] ;
+     fhir:description [ fhir:v "Provide HPV immunizations - using \"HPV vaccine immunization - 1 PREVIOUS\" schedule (2 dose scheme)" ] ;
+     fhir:condition ( [
+       fhir:kind [ fhir:v "applicability" ] ;
+       fhir:expression [
+         fhir:description [ fhir:v "\"HPV vaccine history\" = \"1 dose\"" ] ;
+         fhir:language [ fhir:v "text/cql" ] ;
+         fhir:expression [ fhir:v "Should vaccinate Patient for HPV a second time on a two-dose schedule" ]
+       ]
+     ] [
+       fhir:kind [ fhir:v "applicability" ] ;
+       fhir:expression [
+         fhir:description [ fhir:v "\"Sex\" = \"Female\"" ] ;
+         fhir:language [ fhir:v "text/cql" ] ;
+         fhir:expression [ fhir:v "Should vaccinate Patient for HPV a second time on a two-dose schedule" ]
+       ]
+     ] [
+       fhir:kind [ fhir:v "applicability" ] ;
+       fhir:expression [
+         fhir:description [ fhir:v "\"Current Patient Age in Years\" >=  9" ] ;
+         fhir:language [ fhir:v "text/cql" ] ;
+         fhir:expression [ fhir:v "Should vaccinate Patient for HPV a second time on a two-dose schedule" ]
+       ]
+     ] [
+       fhir:kind [ fhir:v "applicability" ] ;
+       fhir:expression [
+         fhir:description [ fhir:v "\"Current Patient Age in Years\" <= 14" ] ;
+         fhir:language [ fhir:v "text/cql" ] ;
+         fhir:expression [ fhir:v "Should vaccinate Patient for HPV a second time on a two-dose schedule" ]
+       ]
+     ] [
+       fhir:kind [ fhir:v "applicability" ] ;
+       fhir:expression [
+         fhir:description [ fhir:v "\"Date last HPV dose given\" >= \"6 months\"" ] ;
+         fhir:language [ fhir:v "text/cql" ] ;
+         fhir:expression [ fhir:v "Should vaccinate Patient for HPV a second time on a two-dose schedule" ]
+       ]
+     ] [
+       fhir:kind [ fhir:v "applicability" ] ;
+       fhir:expression [
+         fhir:description [ fhir:v "\"Date last HPV dose given\" <= \"12 months\"" ] ;
+         fhir:language [ fhir:v "text/cql" ] ;
+         fhir:expression [ fhir:v "Should vaccinate Patient for HPV a second time on a two-dose schedule" ]
+       ]
+     ] ) ;
+     fhir:definition [
+       fhir:v "http://fhir.org/guides/who/smart-immunization/ActivityDefinition/IMMZ.DT.10.HPV.02"^^xsd:anyURI ;
+       fhir:link <http://fhir.org/guides/who/smart-immunization/ActivityDefinition/IMMZ.DT.10.HPV.02>
+     ]
+  ] [
+     fhir:title [ fhir:v "Immunize Patient for HPV - 2 Doses" ] ;
+     fhir:description [ fhir:v "Provide additional HPV immunizations - using \"HPV vaccination immunization - 2 PREVIOUS\" schedule (2+1 dose scheme)" ] ;
+     fhir:condition ( [
+       fhir:kind [ fhir:v "applicability" ] ;
+       fhir:expression [
+         fhir:description [ fhir:v "\"HPV vaccine history\" = \"2 doses\"" ] ;
+         fhir:language [ fhir:v "text/cql" ] ;
+         fhir:expression [ fhir:v "Should vaccinate Patient for HPV Dose 3 - due to short interval between first and second dose" ]
+       ]
+     ] [
+       fhir:kind [ fhir:v "applicability" ] ;
+       fhir:expression [
+         fhir:description [ fhir:v "\"Sex\" = \"Female\"" ] ;
+         fhir:language [ fhir:v "text/cql" ] ;
+         fhir:expression [ fhir:v "Should vaccinate Patient for HPV Dose 3 - due to short interval between first and second dose" ]
+       ]
+     ] [
+       fhir:kind [ fhir:v "applicability" ] ;
+       fhir:expression [
+         fhir:description [ fhir:v "\"Time between first and second HPV doses in Months\" < 5" ] ;
+         fhir:language [ fhir:v "text/cql" ] ;
+         fhir:expression [ fhir:v "Should vaccinate Patient for HPV Dose 3 - due to short interval between first and second dose" ]
+       ]
+     ] [
+       fhir:kind [ fhir:v "applicability" ] ;
+       fhir:expression [
+         fhir:description [ fhir:v "\"Time since initial HPV dose in Months\" >= 6" ] ;
+         fhir:language [ fhir:v "text/cql" ] ;
+         fhir:expression [ fhir:v "Should vaccinate Patient for HPV Dose 3 - due to short interval between first and second dose" ]
+       ]
+     ] [
+       fhir:kind [ fhir:v "applicability" ] ;
+       fhir:expression [
+         fhir:description [ fhir:v "\"Current Patient Age in Years\" >= 9" ] ;
+         fhir:language [ fhir:v "text/cql" ] ;
+         fhir:expression [ fhir:v "Should vaccinate Patient for HPV Dose 3 - due to short interval between first and second dose" ]
+       ]
+     ] [
+       fhir:kind [ fhir:v "applicability" ] ;
+       fhir:expression [
+         fhir:description [ fhir:v "\"Current Patient Age in Years\" <= 14" ] ;
+         fhir:language [ fhir:v "text/cql" ] ;
+         fhir:expression [ fhir:v "Should vaccinate Patient for HPV Dose 3 - due to short interval between first and second dose" ]
+       ]
+     ] ) ;
+     fhir:definition [
+       fhir:v "http://fhir.org/guides/who/smart-immunization/ActivityDefinition/IMMZ.DT.10.HPV.03"^^xsd:anyURI ;
+       fhir:link <http://fhir.org/guides/who/smart-immunization/ActivityDefinition/IMMZ.DT.10.HPV.03>
+     ]
+  ] [
+     fhir:title [ fhir:v "Immunize Patient for HPV - No Doses" ] ;
+     fhir:description [ fhir:v "Provide HPV immunizations - using the \"HPV vaccine immunization - NO PREVIOUS\" schedule (3 dose scheme)" ] ;
+     fhir:condition ( [
+       fhir:kind [ fhir:v "applicability" ] ;
+       fhir:expression [
+         fhir:description [ fhir:v "\"HPV vaccine history\" = \"No-doses\"" ] ;
+         fhir:language [ fhir:v "text/cql" ] ;
+         fhir:expression [ fhir:v "Should vaccinate Patient for HPV because no doses on a three-dose schedule" ]
+       ]
+     ] [
+       fhir:kind [ fhir:v "applicability" ] ;
+       fhir:expression [
+         fhir:description [ fhir:v "\"Sex\" = \"Female\"" ] ;
+         fhir:language [ fhir:v "text/cql" ] ;
+         fhir:expression [ fhir:v "Should vaccinate Patient for HPV because no doses on a three-dose schedule" ]
+       ]
+     ] [
+       fhir:kind [ fhir:v "applicability" ] ;
+       fhir:expression [
+         fhir:description [ fhir:v "\"Current Patient Age in Years\" >= 15" ] ;
+         fhir:language [ fhir:v "text/cql" ] ;
+         fhir:expression [ fhir:v "Should vaccinate Patient for HPV because no doses on a three-dose schedule" ]
+       ]
+     ] ) ;
+     fhir:definition [
+       fhir:v "http://fhir.org/guides/who/smart-immunization/ActivityDefinition/IMMZ.DT.10.HPV.04"^^xsd:anyURI ;
+       fhir:link <http://fhir.org/guides/who/smart-immunization/ActivityDefinition/IMMZ.DT.10.HPV.04>
+     ]
+  ] [
+     fhir:title [ fhir:v "Immunize Patient for HPV - No Doses" ] ;
+     fhir:description [ fhir:v "Provide HPV immunizations - using the \"HPV vaccine immunization - NO PREVIOUS\" schedule (3 dose scheme)" ] ;
+     fhir:condition ( [
+       fhir:kind [ fhir:v "applicability" ] ;
+       fhir:expression [
+         fhir:description [ fhir:v "\"Current Patient Age in Years\" < 15" ] ;
+         fhir:language [ fhir:v "text/cql" ] ;
+         fhir:expression [ fhir:v "Should vaccinate Patient for HPV because no doses on a three-dose schedule" ]
+       ]
+     ] [
+       fhir:kind [ fhir:v "applicability" ] ;
+       fhir:expression [
+         fhir:description [ fhir:v "\"Immunocompromised\" = \"True\"" ] ;
+         fhir:language [ fhir:v "text/cql" ] ;
+         fhir:expression [ fhir:v "Should vaccinate Patient for HPV because no doses on a three-dose schedule" ]
+       ]
+     ] ) ;
+     fhir:definition [
+       fhir:v "http://fhir.org/guides/who/smart-immunization/ActivityDefinition/IMMZ.DT.10.HPV.05"^^xsd:anyURI ;
+       fhir:link <http://fhir.org/guides/who/smart-immunization/ActivityDefinition/IMMZ.DT.10.HPV.05>
+     ]
+  ] [
+     fhir:title [ fhir:v "Immunize Patient for HPV - 1 Dose" ] ;
+     fhir:description [ fhir:v "Provide HPV immunizations - using the \"HPV vaccine immunization -  ONE PREVIOUS\" schedule (3 dose scheme)" ] ;
+     fhir:condition ( [
+       fhir:kind [ fhir:v "applicability" ] ;
+       fhir:expression [
+         fhir:description [ fhir:v "\"HPV vaccine history\" = \"1 dose\"" ] ;
+         fhir:language [ fhir:v "text/cql" ] ;
+         fhir:expression [ fhir:v "Should vaccinate Patient for HPV because one dose on a three-dose schedule" ]
+       ]
+     ] [
+       fhir:kind [ fhir:v "applicability" ] ;
+       fhir:expression [
+         fhir:description [ fhir:v "\"Sex\" = \"Female\"" ] ;
+         fhir:language [ fhir:v "text/cql" ] ;
+         fhir:expression [ fhir:v "Should vaccinate Patient for HPV because one dose on a three-dose schedule" ]
+       ]
+     ] [
+       fhir:kind [ fhir:v "applicability" ] ;
+       fhir:expression [
+         fhir:description [ fhir:v "\"Current Patient Age in  Years\" >= 15" ] ;
+         fhir:language [ fhir:v "text/cql" ] ;
+         fhir:expression [ fhir:v "Should vaccinate Patient for HPV because one dose on a three-dose schedule" ]
+       ]
+     ] [
+       fhir:kind [ fhir:v "applicability" ] ;
+       fhir:expression [
+         fhir:description [ fhir:v "\"Date last HPV dose given\" >= \"1 month\"" ] ;
+         fhir:language [ fhir:v "text/cql" ] ;
+         fhir:expression [ fhir:v "Should vaccinate Patient for HPV because one dose on a three-dose schedule" ]
+       ]
+     ] [
+       fhir:kind [ fhir:v "applicability" ] ;
+       fhir:expression [
+         fhir:description [ fhir:v "\"Date last HPV does given\" <= \"2 months\"" ] ;
+         fhir:language [ fhir:v "text/cql" ] ;
+         fhir:expression [ fhir:v "Should vaccinate Patient for HPV because one dose on a three-dose schedule" ]
+       ]
+     ] ) ;
+     fhir:definition [
+       fhir:v "http://fhir.org/guides/who/smart-immunization/ActivityDefinition/IMMZ.DT.10.HPV.06"^^xsd:anyURI ;
+       fhir:link <http://fhir.org/guides/who/smart-immunization/ActivityDefinition/IMMZ.DT.10.HPV.06>
+     ]
+  ] [
+     fhir:title [ fhir:v "Immunize Patient for HPV - 2 Doses" ] ;
+     fhir:description [ fhir:v "Provide HPV immunizations - using the \"HPV vaccine immunization -  TWO PREVIOUS\" schedule (3 dose scheme)" ] ;
+     fhir:condition ( [
+       fhir:kind [ fhir:v "applicability" ] ;
+       fhir:expression [
+         fhir:description [ fhir:v "\"HPV vaccine history\" = \"2 doses\"" ] ;
+         fhir:language [ fhir:v "text/cql" ] ;
+         fhir:expression [ fhir:v "Should vaccinate Patient for HPV because two doses on a three-dose schedule" ]
+       ]
+     ] [
+       fhir:kind [ fhir:v "applicability" ] ;
+       fhir:expression [
+         fhir:description [ fhir:v "\"Sex\" = \"Female\"" ] ;
+         fhir:language [ fhir:v "text/cql" ] ;
+         fhir:expression [ fhir:v "Should vaccinate Patient for HPV because two doses on a three-dose schedule" ]
+       ]
+     ] [
+       fhir:kind [ fhir:v "applicability" ] ;
+       fhir:expression [
+         fhir:description [ fhir:v "\"Current Patient Age in Years\" >= 15" ] ;
+         fhir:language [ fhir:v "text/cql" ] ;
+         fhir:expression [ fhir:v "Should vaccinate Patient for HPV because two doses on a three-dose schedule" ]
+       ]
+     ] [
+       fhir:kind [ fhir:v "applicability" ] ;
+       fhir:expression [
+         fhir:description [ fhir:v "\"Date last HPV dose given\" >= \"6 months\"" ] ;
+         fhir:language [ fhir:v "text/cql" ] ;
+         fhir:expression [ fhir:v "Should vaccinate Patient for HPV because two doses on a three-dose schedule" ]
+       ]
+     ] ) ;
+     fhir:definition [
+       fhir:v "http://fhir.org/guides/who/smart-immunization/ActivityDefinition/IMMZ.DT.10.HPV.08"^^xsd:anyURI ;
+       fhir:link <http://fhir.org/guides/who/smart-immunization/ActivityDefinition/IMMZ.DT.10.HPV.08>
+     ]
+  ] ) . # 
+
+# -------------------------------------------------------------------------------------
+
